@@ -4,7 +4,7 @@ module.exports = {
     entry: './src/index.jsx',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main.js',
+        filename: 'main.bundle.js',
     },
     module: {
         rules: [
@@ -18,8 +18,10 @@ module.exports = {
         ]
     },
     devServer: {
-        contentBase: path.resolve(__dirname, 'dist'),
+        static: {
+            directory: path.resolve(__dirname, 'dist'),
+        },
         compress: true,
-        port: 3000,
+        port: 30000,
     },
 }

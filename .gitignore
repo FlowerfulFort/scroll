@@ -1,2 +1,5 @@
-# ignode node module folder
+# ignore node module folder
 /node_modules/
+
+# ignore exported bundle file
+dist/*.js
