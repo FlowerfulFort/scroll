@@ -16,5 +16,10 @@ module.exports = {
                 use: 'babel-loader',
             },
         ]
-    }
+    },
+    devServer: {
+        contentBase: path.resolve(__dirname, 'dist'),
+        compress: true,
+        port: 3000,
+    },
 }
