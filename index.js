@@ -16,6 +16,7 @@ const openMainWindow = () => {
 
 app.whenReady().then(() => {
     let window = openMainWindow();
+    window.webContents.send('asyncMsg','this is message from back-end');
 });
 
 /* in macOS, call quit() manually */

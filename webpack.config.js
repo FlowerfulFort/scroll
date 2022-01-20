@@ -17,6 +17,9 @@ module.exports = {
             },
         ]
     },
+    resolve: {
+        extensions: ['', '.js', '.jsx'],
+    },
     devServer: {
         static: {
             directory: path.resolve(__dirname, 'dist'),
@@ -24,4 +27,4 @@ module.exports = {
         compress: true,
         port: 30000,
     },
-}
+};

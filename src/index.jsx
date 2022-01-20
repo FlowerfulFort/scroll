@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
+import DayWorkList from "./DayWorkList";
 function App() {
-    return <h3>Hello World!</h3>;
+    return <DayWorkList />;
 }
 ReactDOM.render(<App />, document.querySelector("#root"));

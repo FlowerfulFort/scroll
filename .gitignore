@@ -6,3 +6,6 @@ dist/*.bundle*
 
 # ignore data directory
 data/
+
+# ignore prettier ignore config
+.prettierignore
