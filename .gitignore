@@ -3,3 +3,6 @@
 
 # ignore exported bundle file
 dist/*.bundle*
+
+# ignore data directory
+data/

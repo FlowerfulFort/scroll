@@ -6,10 +6,13 @@
   "author": "FlowerfulFort",
   "license": "MIT",
   "scripts": {
-    "start": "webpack serve --open",
+    "start": "electron .",
+    "dev": "webpack serve --open",
     "build": "webpack --config webpack.config.js"
   },
   "dependencies": {
+    "electron": "^16.0.7",
+    "js-yaml": "^4.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
