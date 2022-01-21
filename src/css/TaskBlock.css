@@ -4,11 +4,20 @@
     vertical-align: text-bottom;
 }
 .TaskBlock {
-    height: 60px;
+    height: fit-content;
+    border-top: black solid 3px;
+    border-left: black solid 3px;
+    border-right: black solid 3px;
+}
+.TaskBlock:nth-last-child(1) {
+    border-bottom: black solid 3px;
 }
 .TaskName {
-    height: 40px;
+    height: fit-content;
     font-size: 24px;
+    border-bottom: #cccccc solid 2px;
+    padding-left: 5px;
+    padding-bottom: 3px;
 }
 .TaskBottom span {
     text-align: center;
@@ -22,4 +31,9 @@
 .TaskBottom > div {
     flex: auto;
     display: flex;
+    border-bottom: skyblue 3px;
+}
+.TaskBottom > div > span:nth-child(1) {
+    border-left: #cccccc solid 2px;
+    border-right: #cccccc solid 2px;
 }
