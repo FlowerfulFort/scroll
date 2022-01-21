@@ -5,6 +5,6 @@ import TaskBlock from "./TaskBlock";
 function App() {
     let daily = window.load.loadData()["daily"][0];
 
-    return <TaskBlock taskname={daily["name"]} time={daily["time"]} locate={daily["locate"]} />;
+    return <TaskBlock taskname={daily["name"]} time={daily["time"]} locate={daily["locate"]} alarm={daily["alarm"]} />;
 }
 ReactDOM.render(<App />, document.querySelector("#root"));
