@@ -1,7 +1,7 @@
 import React from "react";
 import bellimg from "../resource/bell.png";
 import bellimg_false from "../resource/bell_false.png";
-import Style from "../css/TaskBlock.css";
+import Style from "./css/TaskBlock.css";
 export default class TaskBlock extends React.Component {
     constructor(props) {
         super(props);
