@@ -17,8 +17,8 @@ export default class TaskBlock extends React.Component {
                 <div className="TaskBottom">
                     <img src={this.SelectBellImg()} />
                     <div>
-                        <span>{this.props.time}</span>
-                        <span>{this.props.locate}</span>
+                        <div>{this.props.time}</div>
+                        <div>{this.props.locate}</div>
                     </div>
                 </div>
             </div>
