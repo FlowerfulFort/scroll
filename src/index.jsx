@@ -3,8 +3,10 @@ import ReactDOM from "react-dom";
 import DayWorkList from "./DayWorkList";
 import TaskBlock from "./TaskBlock";
 function App() {
-    let daily = window.load.loadData()["daily"][0];
+    let dailylist = window.load.loadData()["daily"];
 
-    return <TaskBlock taskname={daily["name"]} time={daily["time"]} locate={daily["locate"]} alarm={daily["alarm"]} />;
+    return dailylist.map((daily) => {
+        return <TaskBlock taskname={daily["name"]} time={daily["time"]} locate={daily["locate"]} alarm={daily["alarm"]} />;
+    });
 }
 ReactDOM.render(<App />, document.querySelector("#root"));
