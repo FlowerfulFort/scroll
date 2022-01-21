@@ -15,7 +15,21 @@ module.exports = {
                 ],
                 use: 'babel-loader',
             },
-        ]
+            {
+                test: /\.(gif|png|jpg)?$/,
+                include: [
+                    path.resolve(__dirname, 'resource')
+                ],
+                use: 'file-loader',
+            },
+            {
+                test: /\.css?$/,
+                include: [
+                    path.resolve(__dirname, 'css')
+                ],
+                use: ['style-loader', 'css-loader'],
+            },
+        ],
     },
     resolve: {
         extensions: ['', '.js', '.jsx'],

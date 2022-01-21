@@ -1,0 +1,25 @@
+.TaskBottom > img {
+    width: 20px;
+    height: 20px;
+    vertical-align: text-bottom;
+}
+.TaskBlock {
+    height: 60px;
+}
+.TaskName {
+    height: 40px;
+    font-size: 24px;
+}
+.TaskBottom span {
+    text-align: center;
+    flex-basis: 0px;
+    flex-grow: 1;
+}
+.TaskBottom {
+    height: 20px;
+    display: flex;
+}
+.TaskBottom > div {
+    flex: auto;
+    display: flex;
+}

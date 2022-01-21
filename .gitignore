@@ -2,10 +2,11 @@
 /node_modules/
 
 # ignore exported bundle file
-dist/*.bundle*
+/dist/
+!/dist/index.html
 
 # ignore data directory
-data/
+/data/
 
 # ignore prettier ignore config
 .prettierignore
