@@ -17,6 +17,7 @@ export default class DailyTasks extends React.Component {
                             time={element["time"]}
                             locate={element["locate"]}
                             alarm={element["alarm"]}
+                            key={element["name"].concat("@", element["time"])}
                         />
                     );
                 })}

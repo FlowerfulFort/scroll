@@ -11,7 +11,7 @@ import bellimg_false from "../resource/bell_false.png";
 import Style from "./css/TaskBlock.css";
 import PropTypes from "prop-types";
 
-class TaskBlock extends React.Component {
+class TaskBlock extends React.PureComponent {
     constructor(props) {
         super(props);
     }
