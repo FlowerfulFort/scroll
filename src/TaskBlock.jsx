@@ -1,8 +1,17 @@
+/* Component: TaskBlock
+ * TaskBlock is a Block for viewing a Task
+ * Props:
+ *   taskname: name of task
+ *   time: time of task
+ *   locate: locate for acting task
+ *   alarm: setting for ringing alarm */
 import React from "react";
 import bellimg from "../resource/bell.png";
 import bellimg_false from "../resource/bell_false.png";
 import Style from "./css/TaskBlock.css";
-export default class TaskBlock extends React.Component {
+import PropTypes from "prop-types";
+
+class TaskBlock extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -25,3 +34,14 @@ export default class TaskBlock extends React.Component {
         );
     }
 }
+
+TaskBlock.propTypes = {
+    taskname: PropTypes.string.isRequired,
+    time: PropTypes.string.isRequired,
+    locate: PropTypes.string,
+    alarm: PropTypes.bool,
+};
+TaskBlock.defaultProps = {
+    alarm: false,
+};
+export default TaskBlock;
