@@ -2,10 +2,11 @@
  * DailyTasks is a Page for viewing daily tasks. */
 import React from "react";
 import TaskBlock from "./TaskBlock";
-export default class DailyTasks extends React.Component {
+import PropTypes from "prop-types";
+
+class DailyTasks extends React.PureComponent {
     constructor(props) {
         super(props);
-        // this.state.referDate = this.props.referDate;
     }
     render() {
         return (
@@ -25,3 +26,11 @@ export default class DailyTasks extends React.Component {
         );
     }
 }
+DailyTasks.propTypes = {
+    referDate: PropTypes.number,
+};
+DailyTasks.defaultProps = {
+    referDate: new Date().getDate(),
+};
+
+export default DailyTasks;
