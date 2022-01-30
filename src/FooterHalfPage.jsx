@@ -1,8 +1,20 @@
 import React from "react";
+import styled from "styled-component";
+
+const FlexContainer = styled.div`
+    display: flex;
+`;
+
+const FlexChildren = styled.div`
+    flex-grow: 1;
+    flex-basis: 0px;
+`;
 export default function FooterHalfPage({ children }) {
     return (
-        <div style={{ display: "flex" }}>
-            {React.Children.map(children, (child) => {})}
-        </div>
+        <FlexContainer>
+            {React.Children.map(children, (child) => {
+                return <FlexChildren>{child}</FlexChildren>;
+            })}
+        </FlexContainer>
     );
 }
