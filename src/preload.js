@@ -1,8 +1,12 @@
 const { contextBridge } = require('electron');
 const yaml = require('js-yaml');
 const fs = require('fs');
-console.log("preload.js loaded.");
 
+document.addEventListener('DOMContentLoaded', () => {
+    const body = document.querySelector('body');
+    body.style.marginTop = "1px";
+    body.style.marginBottom = "1px";
+})
 contextBridge.exposeInMainWorld('load',
 {
     loadData: () => {   // send Object from yml file.
@@ -26,3 +30,5 @@ contextBridge.exposeInMainWorld('write',
         }
     }
 });
+
+console.log("preload.js loaded.");
