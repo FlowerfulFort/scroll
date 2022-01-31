@@ -9,6 +9,7 @@ class DailyTasks extends React.PureComponent {
         super(props);
     }
     render() {
+        console.log("DailyTasks Rendered");
         return (
             <div className="TasksPage">
                 {this.props.obj["daily"].map((element) => {

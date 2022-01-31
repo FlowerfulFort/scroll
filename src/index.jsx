@@ -3,7 +3,8 @@ import ReactDOM from "react-dom";
 import DayWorkList from "./DayWorkList";
 import TaskBlock from "./TaskBlock";
 import DailyTasks from "./DailyTasks";
-import FooterHalfPage from "./FooterHalfPage";
+import FooterHalfPage from "./HalfPage";
+import MainPage from "./MainPage";
 function App() {
     let dailylist = window.load.loadData()["daily"];
 
@@ -19,7 +20,7 @@ function App() {
     });
 }
 let obj = window.load.loadData();
-
+/*
 function TestApp() {
     return (
         <FooterHalfPage>
@@ -28,5 +29,6 @@ function TestApp() {
         </FooterHalfPage>
     );
 }
+*/
 // ReactDOM.render(<DailyTasks obj={obj} />, document.querySelector("#root"));
-ReactDOM.render(<TestApp />, document.querySelector("#root"));
+ReactDOM.render(<MainPage />, document.querySelector("#root"));
