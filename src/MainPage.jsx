@@ -63,7 +63,7 @@ export default class MainPage extends React.PureComponent {
                     <MainFooter>Today's Task</MainFooter>
                     <MainFooter>Tomorrow's Task</MainFooter>
                 </HalfPage>
-                <HalfPage>
+                <HalfPage flex_last>
                     <DailyTasks obj={this.obj} />
                     <DailyTasks obj={this.obj} />
                 </HalfPage>

@@ -3,7 +3,9 @@ import styled from "styled-components";
 
 const FlexContainer = styled.div`
     display: flex;
-    height: max-content;
+    ${({ flex_last }) => {
+        if (flex_last) return "flex: 1;";
+    }}
 `;
 
 const FlexChildren = styled.div`
@@ -17,10 +19,10 @@ const FlexChildren = styled.div`
         margin-left: 3px;
     }
 `;
-export default function FooterHalfPage({ children }) {
+export default function FooterHalfPage(props) {
     return (
-        <FlexContainer>
-            {React.Children.map(children, (child) => {
+        <FlexContainer flex_last={props.flex_last}>
+            {React.Children.map(props.children, (child) => {
                 return <FlexChildren>{child}</FlexChildren>;
             })}
         </FlexContainer>
