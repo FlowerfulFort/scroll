@@ -23,6 +23,7 @@ export default class MainPage extends React.PureComponent {
         this.referDateObj = new Date();
         this.state = {
             referDate: this.referDateObj.getDate(),
+            nextDate: this.referDateObj.getDate() + 1,
         };
         this.nextDate = this.state.referDate + 1;
         this.refresh = setInterval(this.checkDay, 5000);
@@ -36,9 +37,8 @@ export default class MainPage extends React.PureComponent {
         const oldDate = this.state["referDate"];
         if (this.state["referDate"] !== now) {
             this.referDateObj = new Date();
-            this.setState({ referDate: now }, () => {
+            this.setState({ referDate: now, nextDate: now + 1 }, () => {
                 console.log(`Date changed ${oldDate} to ${now}`);
-                this.nextDate = this.state["referDate"] + 1; // setState() 비동기 작동에 의한 오작동 가능성.
             });
         }
     }
@@ -64,8 +64,8 @@ export default class MainPage extends React.PureComponent {
                     <MainFooter>Tomorrow's Task</MainFooter>
                 </HalfPage>
                 <HalfPage flex_last>
-                    <DailyTasks obj={this.obj} />
-                    <DailyTasks obj={this.obj} />
+                    <DailyTasks obj={this.obj} referDate={this.state.referDate} key={0} />
+                    <DailyTasks obj={this.obj} referDate={this.state.nextDate} key={1} />
                 </HalfPage>
             </React.Fragment>
         );
