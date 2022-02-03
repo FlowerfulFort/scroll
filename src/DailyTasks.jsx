@@ -10,10 +10,16 @@ class DailyTasks extends React.PureComponent {
     constructor(props) {
         super(props);
         this.dailylist = this.props.obj["daily"];
-        this.weeklylist = this.props.obj;
+        const weekly = [];
 
         this.referObj = new Date().setDate(this.props.referDate);
         const today = ParseDay(this.referObj);
+
+        this.props.obj["weekly"].forEach((element) => {
+            if (element["day"] === today) weekly.push(element);
+        });
+
+        this.weeklylist = weekly;
     }
     render() {
         console.log("DailyTasks Rendered");
