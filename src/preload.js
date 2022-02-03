@@ -3,7 +3,7 @@ const yaml = require('js-yaml');
 const fs = require('fs');
 
 function extrFromStyle(style) {     /* 20px -> Number(20) */
-    return style.slice(0, style.length-2);
+    return Number(style.slice(0, style.length-2));
 }
 document.addEventListener('DOMContentLoaded', () => {
     const html = document.querySelector('html');
