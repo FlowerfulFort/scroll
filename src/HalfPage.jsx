@@ -19,7 +19,7 @@ const FlexChildren = styled.div`
         margin-left: 3px;
     }
 `;
-export default function FooterHalfPage(props) {
+export default function HalfPage(props) {
     return (
         <FlexContainer flex_last={props.flex_last}>
             {React.Children.map(props.children, (child) => {

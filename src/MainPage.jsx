@@ -64,7 +64,12 @@ export default class MainPage extends React.PureComponent {
                     <MainFooter>Tomorrow's Task</MainFooter>
                 </HalfPage>
                 <HalfPage flex_last>
-                    <DailyTasks obj={this.obj} referDate={this.state.referDate} key={0} />
+                    <DailyTasks
+                        obj={this.obj}
+                        referDate={this.state.referDate}
+                        key={0}
+                        today
+                    />
                     <DailyTasks obj={this.obj} referDate={this.state.nextDate} key={1} />
                 </HalfPage>
             </React.Fragment>

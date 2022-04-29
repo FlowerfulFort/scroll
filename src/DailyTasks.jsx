@@ -10,6 +10,11 @@ import MergeDailyWeekly from "./MergeDailyWeekly";
 class DailyTasks extends React.PureComponent {
     constructor(props) {
         super(props);
+        if(this.props.today) {
+            this.iteration = setInterval(() => {
+                this.clock = new Date();
+            }, 5000);
+        }
         /*
         this.dailylist = this.props.obj["daily"];
 
@@ -67,9 +72,11 @@ class DailyTasks extends React.PureComponent {
 DailyTasks.propTypes = {
     referDate: PropTypes.number,
     obj: PropTypes.object.isRequired,
+    today: PropTypes.bool,
 };
 DailyTasks.defaultProps = {
     referDate: new Date().getDate(),
+    today: false,
 };
 
 export default DailyTasks;
