@@ -21,14 +21,20 @@ const TaskBlock = styled.div`
         border-bottom: black solid 3px;
     }
 `;
-*/
+*/ /*
 const CheckMark = styled.span`
     content: "\\2714";
-`;
+`;*/
+const CheckMark = ({ checked }) => {
+    const styleAttr = {};
+    if (checked) styleAttr["display"] = "inline-block";
+    else styleAttr["display"] = "none";
+    return <span style={styleAttr}>&#10004;</span>;
+};
 class TaskBlock extends React.Component {
     constructor(props) {
         super(props);
-        this.passed = false;
+        this.passed = false; // 내가 만들었지만 의미불명.
     }
     SelectBellImg() {
         if (this.props.alarm) return bellimg;
@@ -69,12 +75,16 @@ class TaskBlock extends React.Component {
             return true;
         }
     }
+    /* TODO: timeover가 갖춰져야 할 시간을 탐지해야함.
+             몇초 주기로 컴포넌트 업데이트를 확인해야하는 함수를 추가해야함. */
     render() {
+        let attr = "TaskName timeover"; // 임시로
+        if (this.passed) attr.concat("timeover");
         return (
             <div className="TaskBlock">
-                <div className="TaskName">
+                <div className={attr}>
                     {this.props.taskname}
-                    <CheckMark />
+                    <CheckMark checked />
                 </div>
                 <div className="TaskBottom">
                     <img src={this.SelectBellImg()} />
@@ -96,5 +106,8 @@ TaskBlock.propTypes = {
 };
 TaskBlock.defaultProps = {
     alarm: false,
+};
+CheckMark.propTypes = {
+    checked: PropTypes.bool,
 };
 export default TaskBlock;
