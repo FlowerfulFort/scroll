@@ -16,6 +16,9 @@ const Title = styled(MainFooter)`
     border-bottom: black solid 2px;
     background-color: white !important;
 `;
+/* MainPage's state
+   referDate: date of now (Integer)
+   nextDate: date of tomorrow (Integer) */
 export default class MainPage extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -26,6 +29,7 @@ export default class MainPage extends React.PureComponent {
             nextDate: this.referDateObj.getDate() + 1,
         };
         this.nextDate = this.state.referDate + 1;
+        /* 5초마다 날짜를 체크함. 0시 전후로 날짜가 바뀌는지 체크하기 위함. */
         this.refresh = setInterval(this.checkDay, 5000);
 
         console.log(`Today is ${this.referDateObj}`);

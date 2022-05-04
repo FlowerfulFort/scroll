@@ -31,8 +31,10 @@ class DailyTasks extends React.PureComponent {
     render() {
         const dailylist = this.props.obj["daily"];
 
+        /* MainPage로 부터 referDate를 받아 해당 날짜의 Date Object를 생성. */
         const referObj = new Date().setDate(this.props.referDate);
-        const today = ParseDay(referObj);
+        const today = ParseDay(referObj);   // 요일 파싱
+        /* weekly task 중 today에 해당하는 task만 필터링함. */
         const weeklylist = this.props.obj["weekly"].filter((e) => e["day"] === today);
         console.log("DailyTasks Rendered");
         return (
