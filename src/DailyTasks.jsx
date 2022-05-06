@@ -1,12 +1,19 @@
 /* Component: DailyTasks
  * DailyTasks is a Page for viewing daily tasks.
- */
+ * Props:
+ *   obj: data.yml object
+ *   referDate: reference about date to create TaskBlock
+ *   key: attribute for react management system
+ *   today: a flag to know this component viewing today's tasks
+ * Component hierarchy
+ * MainPage > HalfPage > DailyTasks */
 import React from "react";
 import TaskBlock from "./TaskBlock";
 import PropTypes from "prop-types";
 import ParseDay from "./ParseDay";
 import MergeDailyWeekly from "./MergeDailyWeekly";
-
+/* TODO: today 특성이 있다면(DailyTasks가 두개이니), 시간을 계속 체크하는 비동기 구문을 짜서
+   setState() 로 render()를 유도하여 TasksBlock에 now attribute를 수정해준다. */
 class DailyTasks extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -27,6 +34,10 @@ class DailyTasks extends React.PureComponent {
             if (element["day"] === today) weekly.push(element);
         });
         */
+    }
+    clocking() {
+        /* TODOs */
+        const nowtime = new Date();
     }
     render() {
         const dailylist = this.props.obj["daily"];

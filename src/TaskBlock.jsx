@@ -4,7 +4,9 @@
  *   taskname: name of task
  *   time: time of task
  *   locate: locate for acting task
- *   alarm: setting for ringing alarm */
+ *   alarm: setting for ringing alarm 
+ * Component hierarchy
+ * MainPage > HalfPage > DailyTasks > TaskBlock */
 import React from "react";
 import bellimg from "../resource/bell.png";
 import bellimg_false from "../resource/bell_false.png";
