@@ -17,10 +17,10 @@ import MergeDailyWeekly from "./MergeDailyWeekly";
 class DailyTasks extends React.PureComponent {
     constructor(props) {
         super(props);
+        this.state = { clock: new Date() };
+        this.clocking = this.clocking.bind(this);
         if(this.props.today) {
-            this.iteration = setInterval(() => {
-                this.clock = new Date();
-            }, 5000);
+            this.iteration = setTimeout(this.clocking, 5000);
         }
         /*
         this.dailylist = this.props.obj["daily"];
@@ -37,7 +37,10 @@ class DailyTasks extends React.PureComponent {
     }
     clocking() {
         /* TODOs */
-        const nowtime = new Date();
+        let nowtime = new Date();
+        this.setState({clock: nowtime}, () => {
+            this.iteration = setTimeout(this.clocking, 5000);
+        })
     }
     render() {
         const dailylist = this.props.obj["daily"];
@@ -57,6 +60,8 @@ class DailyTasks extends React.PureComponent {
                             time={element["time"]}
                             locate={element["locate"]}
                             alarm={element["alarm"]}
+                            now={this.state.clock}
+                            today={this.props.today}
                             key={element["name"].concat("@", element["time"])}
                         />
                     );

@@ -5,6 +5,7 @@
  *   time: time of task
  *   locate: locate for acting task
  *   alarm: setting for ringing alarm 
+ *   today: today flag
  * Component hierarchy
  * MainPage > HalfPage > DailyTasks > TaskBlock */
 import React from "react";
@@ -40,13 +41,15 @@ const CheckMark = ({ checked }) => {
 class TaskBlock extends React.Component {
     constructor(props) {
         super(props);
-        this.passed = false; // 내가 만들었지만 의미불명. 아마 시간이 지나갔는지 나타나는 것일듯.
+        this.passed = false;
+        if (this.props.today)
+            this.checkTime(this.props.now);
     }
     SelectBellImg() {       // taskblock의 alarm property에 맞춰 알람 이미지를 설정.
         if (this.props.alarm) return bellimg;
         return bellimg_false;
     }
-    checkTime(dateObj) {    // 의미불명 재해석해야함.
+    checkTime(dateObj) {    // 초기의 this.passed 변수를 결정하는 함수.
         if (this.passed) return true;       // 일이 이미 지나갔으면 시간체크를 할 필요가 없다.
 
         // when this.passed === false
@@ -65,33 +68,39 @@ class TaskBlock extends React.Component {
         return this.passed;         // true가 리턴되지 않았다면 false이다.
     }
     shouldComponentUpdate(nextProps, nextState) {
+        /* 오늘의 task가 아니면 업데이트 할 필요가 없다. */
+        if (!this.props.today) return false;
+        /*
         if (!this.passed) {
             // when this.passed === false
-            // 시간이 지나갔는지 검사함. 만약 지나가지 않았다면 취소선 그을 이유도 없고 날이 바뀐것도 아님. */
+            // 시간이 지나갔는지 검사함. 만약 지나가지 않았다면 취소선 그을 이유도 없고 날이 바뀐것도 아님. 
             return this.checkTime(new Date());  // 현재 시간을 넘김.
         }
+        */
+        if (this.passed) return false;
         /* 이미 now property로 passed를 구현했었다. now를 안넘길 뿐
            그럼 checkTime()은 필요없어진건가. */
         const now = nextProps.now;
         const hours = now.getHours();
         const minute = now.getMinutes();
 
-        const tasktime = this.nextProps.time.split(":");
+        const tasktime = nextProps.time.split(":");
         if (hours > tasktime[0]) {
             this.passed = true;
             return true;
         }
-        if (hours === tasktime[0] && minute > tasktime[1]) {
+        if (hours == tasktime[0] && minute > tasktime[1]) {
             this.passed = true;
             return true;
         }
+        return false;
     }
     /* TODO: timeover가 갖춰져야 할 시간을 탐지해야함.
              몇초 주기로 컴포넌트 업데이트를 확인해야하는 함수를 추가해야함. */
     render() {
         console.log(`TaskName: "${this.props.taskname}" is rendering..`);
         let attr = "TaskName "; // class Attribute
-        if (this.passed) attr.concat("timeover");
+        if (this.passed) attr = attr.concat("timeover");
         return (
             <div className="TaskBlock">
                 <div className={attr}>
